@@ -78,9 +78,7 @@ public class Worker {
 		for(HourContract c : contracts) {
 			cal.setTime(c.getDate());
 			int c_year = cal.get(Calendar.YEAR);
-			System.out.println(c_year);
 			int c_month = 1 + cal.get(Calendar.MONTH);
-			System.out.println(c_month);
 			if(year == c_year && month == c_month ) {
 				sum += c.totalValue();
 			}

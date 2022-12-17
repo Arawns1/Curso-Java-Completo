@@ -1,16 +1,18 @@
 package entities;
 
-public  class Department {
+
+public class Department {
+	
 	private static String name;
 	
-	public  Department() {
+	public Department() {
 	}
 
-	public  Department(String name) {
+	public Department(String name) {
 		Department.name = name;
 	}
 
-	public  String getName() {
+	public String getName() {
 		return name;
 	}
 
