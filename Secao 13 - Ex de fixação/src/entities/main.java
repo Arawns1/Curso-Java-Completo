@@ -19,22 +19,25 @@ public class main {
 		
 		// Cliente
 		System.out.println("Enter Client data: ");
+		
 		System.out.print("Name: ");
-		String name = sc.nextLine();
-		System.out.print("Birth date (DD/MM/YYYY: ");
+		String name = sc.next();
+		
+		System.out.print("Birth date (DD/MM/YYYY): ");
 		Date data = sdf1.parse(sc.next());
+		
 		System.out.print("Email: ");
-		String email = sc.nextLine();
+		String email = sc.next();
 		
 		Client c1 = new Client(name, email, data);
 		
 		// Fim cliente
 		
-		System.out.println("Enter order status: ");
-		System.out.print("Status: ");
-		OrderStatus status = OrderStatus.valueOf(sc.nextLine());
-		System.out.print("How many items to this order? ");
 		
+		System.out.println("Enter order data: ");
+		System.out.print("Status: ");
+		String status = sc.next();
+		System.out.print("How many items to this order? ");
 		int n = sc.nextInt();
 		
 		List<OrderItem> temp = new ArrayList<>();
@@ -43,7 +46,7 @@ public class main {
 			System.out.println("Enter #" + (1 + i) + " item data:");
 			
 			System.out.print("Product name: ");
-			String p_name = sc.nextLine();
+			String p_name = sc.next();
 			
 			System.out.print("Product price: ");
 			Double p_price = sc.nextDouble();
@@ -55,7 +58,7 @@ public class main {
 			
 		}
 		
-		Order o1 = new Order(data, status, c1, temp);
+		Order o1 = new Order(new Date(), OrderStatus.valueOf(status), c1, temp);
 		
 		System.out.println(o1);
 	}
