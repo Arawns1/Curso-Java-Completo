@@ -56,6 +56,8 @@ public class main {
 		}
 		
 		Order o1 = new Order(data, status, c1, temp);
+		
+		System.out.println(o1);
 	}
 
 }

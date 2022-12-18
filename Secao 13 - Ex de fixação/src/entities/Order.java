@@ -45,11 +45,28 @@ public class Order {
 	public void removeItem(OrderItem item){
 		orderitems.remove(item);
 	}
-	public void total(){
+	public Double total(){
+		double sum = 0;
+		
 		for(OrderItem i : orderitems) {
-			i.subTotal();
+			sum += i.subTotal();
 		}
+		return sum;
 	}
 	
+	public String toString() {
+		StringBuilder s1 = new StringBuilder();
+		s1.append("Order SummarY: \n");
+		s1.append("Order moment: "+ this.getMoment() + "\n");
+		s1.append("Order Status: " + this.getStatus() + "\n");
+		s1.append("Client: "+ this.client + "\n");
+		s1.append("Order items: \n");
+		for(OrderItem oi : orderitems) {
+			s1.append(oi);
+		}
+		s1.append("Total price: $"+ String.format("%.2f", this.total()));
+		
+		return s1.toString();
+	}
 	
 }
