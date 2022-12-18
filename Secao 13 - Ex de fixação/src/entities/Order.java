@@ -8,7 +8,7 @@ import entities.enums.OrderStatus;
 
 public class Order {
 
-	Date moment = new Date();
+	Date moment;
 	OrderStatus status;
 	Client client;
 	List<OrderItem> orderitems = new ArrayList<>();
