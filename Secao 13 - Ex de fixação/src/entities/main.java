@@ -21,7 +21,7 @@ public class main {
 		System.out.println("Enter Client data: ");
 		
 		System.out.print("Name: ");
-		String name = sc.next();
+		String name = sc.nextLine();
 		
 		System.out.print("Birth date (DD/MM/YYYY): ");
 		Date data = sdf1.parse(sc.next());
