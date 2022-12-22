@@ -33,7 +33,7 @@ public class Employee {
 		this.valuePerHour = valuePerHour;
 	}
 
-	public double payment() {
+	public double getPayment() {
 		return this.getValuePerHour() * this.getHours();
 	}
 	

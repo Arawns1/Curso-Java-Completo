@@ -9,6 +9,8 @@ public class OutsourcedEmployee extends Employee {
 		this.additionalCharge = additionalCharge;
 	}
 
+	public OutsourcedEmployee() {
+	}
 
 	public double getAdditionalCharge() {
 		return additionalCharge;
@@ -19,7 +21,7 @@ public class OutsourcedEmployee extends Employee {
 	}
 	
 	@Override
-	public double payment() {
+	public double getPayment() {
 		return (this.getValuePerHour() * this.getHours()) + this.getAdditionalCharge()*1.10;
 	}
 	
