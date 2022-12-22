@@ -22,7 +22,7 @@ public class OutsourcedEmployee extends Employee {
 	
 	@Override
 	public double getPayment() {
-		return (this.getValuePerHour() * this.getHours()) + this.getAdditionalCharge()*1.10;
+		return super.getPayment() + this.getAdditionalCharge()*1.1;
 	}
 	
 }
