@@ -7,7 +7,6 @@ public abstract class Contribuintes {
 	private static double totalTaxes;
 	
 	public Contribuintes(String cpf, String name, double anualIncome) {
-		super();
 		this.cpf = cpf;
 		this.name = name;
 		this.anualIncome = anualIncome;
