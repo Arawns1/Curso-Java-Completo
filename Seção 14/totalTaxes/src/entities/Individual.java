@@ -4,8 +4,8 @@ public class Individual extends Contribuintes {
 	
 	private double healthSpendings;
 
-	public Individual(String cpf, String name, double anualIncome, double healthSpendings) {
-		super(cpf, name, anualIncome);
+	public Individual(String name, double anualIncome, double healthSpendings) {
+		super(name, anualIncome);
 		this.healthSpendings = healthSpendings;
 		Contribuintes.setTotalTaxes(getTotalTaxes() + this.totalPaid()); 
 	}
@@ -22,6 +22,7 @@ public class Individual extends Contribuintes {
 		this.healthSpendings = healthSpendings;
 	}
 	
+	@Override
 	public double totalPaid() {
 		double taxes = 0;
 		
@@ -39,6 +40,8 @@ public class Individual extends Contribuintes {
 		return taxes;
 		
 	}
+	
+	
 	
 	
 }

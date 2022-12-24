@@ -4,8 +4,8 @@ public class Company extends Contribuintes {
 
 	private int employeeNumber;
 
-	public Company(String cpf, String name, double anualIncome, int employeeNumber) {
-		super(cpf, name, anualIncome);
+	public Company( String name, double anualIncome, int employeeNumber) {
+		super(name, anualIncome);
 		this.employeeNumber = employeeNumber;
 		Contribuintes.setTotalTaxes(getTotalTaxes() + this.totalPaid()); 
 	}
@@ -25,7 +25,7 @@ public class Company extends Contribuintes {
 		this.employeeNumber = employeeNumber;
 	}
 
-
+	@Override
 	public double totalPaid() {
 		
 		if(this.getEmployeeNumber() > 10) {
@@ -35,4 +35,5 @@ public class Company extends Contribuintes {
 			return this.getAnualIncome() * 0.16;
 		}
 	}
+
 }

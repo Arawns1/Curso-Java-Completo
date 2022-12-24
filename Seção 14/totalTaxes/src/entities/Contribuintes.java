@@ -1,13 +1,11 @@
 package entities;
 
 public abstract class Contribuintes {
-	private String cpf;
 	private String name;
 	private double anualIncome;
 	private static double totalTaxes;
 	
-	public Contribuintes(String cpf, String name, double anualIncome) {
-		this.cpf = cpf;
+	public Contribuintes(String name, double anualIncome) {
 		this.name = name;
 		this.anualIncome = anualIncome;
 	}
@@ -16,14 +14,6 @@ public abstract class Contribuintes {
 		
 	}
 	
-	
-	public String getCpf() {
-		return cpf;
-	}
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
 
 	public String getName() {
 		return name;
@@ -44,6 +34,9 @@ public abstract class Contribuintes {
 		Contribuintes.totalTaxes = totalTaxes;
 	}
 	
+	public abstract double totalPaid();
 	
-	
+	public String toString() {
+		return this.getName() + " : $ " + String.format("%.2f", this.totalPaid());
+	}
 }
