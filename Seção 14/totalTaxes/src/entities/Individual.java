@@ -27,13 +27,13 @@ public class Individual extends Contribuintes {
 		double taxes = 0;
 		
 		if(this.getAnualIncome() < 20000) {
-			taxes += this.getAnualIncome() * 0.15;
+			taxes = this.getAnualIncome() * 0.15;
 		}
 		else {
-			taxes += this.getAnualIncome() * 0.25;
+			taxes = this.getAnualIncome() * 0.25;
 		}
 		
-		if(this.getHealthSpendings() != 0) {
+		if(this.getHealthSpendings() > 0) {
 			taxes -= this.getHealthSpendings() * 0.5;	
 		}
 		
