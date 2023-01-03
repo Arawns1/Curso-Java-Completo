@@ -55,22 +55,20 @@ public class main {
 			
 			
 		} catch (IOException e) {
-			System.out.println("Error: " +  e.getMessage());
+			System.out.println("Error ao ler o arquivo: " +  e.getMessage());
 		}
 	}
 	
 	public static void gerarCSV(List<Produto> produtos, String path) {
 		
-			
-		
 		File arquivo = new File(path);
 		
-		String newPath = arquivo.getParent() + "\\subdir";
-	
-		
+		//Criando o diretório
+		String newPath = arquivo.getParent() + "\\out";
 		boolean sucess = new File(newPath).mkdir();	
 				
-		try(BufferedWriter bw = new BufferedWriter(new FileWriter(newPath + "\\out.csv"))){
+		//criando o arquivo dentro do novo diretório
+		try(BufferedWriter bw = new BufferedWriter(new FileWriter(newPath + "\\summary.csv"))){
 			
 			
 			for(Produto p : produtos) {
@@ -79,7 +77,7 @@ public class main {
 			}
 			System.out.println("Arquivo gravado com sucesso!");
 		} catch (IOException e ) {
-			System.out.println("Error: " + e.getMessage());
+			System.out.println("Error ao criar o arquivo: " + e.getMessage());
 		}
 	}
 
