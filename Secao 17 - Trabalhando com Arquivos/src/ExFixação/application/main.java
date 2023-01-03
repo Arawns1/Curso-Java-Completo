@@ -16,8 +16,7 @@ public class main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		Locale.setDefault(Locale.US);
-		
-		List<String> strProdutos = new ArrayList<>();
+
 		List<Produto> produtos = new ArrayList<>();
 		
 		System.out.println("Enter a csv file path:  ");
@@ -30,18 +29,16 @@ public class main {
 			while (line != null) {
 				//fORMATANDO E ADICIONADO A 1º LISTA
 				String formatedLine = line.replaceAll("\"", "");
-				strProdutos.add(formatedLine);
-				line = br.readLine();
-			}
-			
-			for(String item : strProdutos) {  // PEGA CADA LINHA DO ARQUIVO
+				String[] fields = formatedLine.split(",");
 				
-				String[] fields = item.split(","); // SEPARA ATÉ CADA VIRGULA E COLOCA NUMA LISTA
 				String name = fields[0]; // APENAS OS NOMES;
 				double price = Double.parseDouble(fields[1].replaceAll(" ", ""));
 				int quantity = Integer.parseInt(fields[2].replaceAll(" ", ""));
 				produtos.add(new Produto(name, price, quantity));
+				
+				line = br.readLine();
 			}
+			
 			
 			System.out.println("*** PRODUTOS: ***");
 			for(Produto p : produtos) {
@@ -69,12 +66,13 @@ public class main {
 				
 		//criando o arquivo dentro do novo diretório
 		try(BufferedWriter bw = new BufferedWriter(new FileWriter(newPath + "\\summary.csv"))){
-			
-			
+
 			for(Produto p : produtos) {
 				bw.write(p.getName() + "," + p.getTotal());
 				bw.newLine();
 			}
+			
+			
 			System.out.println("Arquivo gravado com sucesso!");
 		} catch (IOException e ) {
 			System.out.println("Error ao criar o arquivo: " + e.getMessage());
