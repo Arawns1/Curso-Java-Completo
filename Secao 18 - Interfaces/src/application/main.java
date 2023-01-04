@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 import entities.Contract;
 import services.ContractService;
+import services.PaypalService;
 
 public class main {
 
@@ -32,13 +33,13 @@ public class main {
 			System.out.print("Entre o número de parcelas: ");
 			int months = Integer.parseInt(sc.nextLine());
 			
-			Contract c1 = new Contract(number, formatedDate, amount);
+			Contract obj = new Contract(number, formatedDate, amount);
 			
 			ContractService service = new ContractService();
 			
-			service.processContract(c1, months);
+			service.processContract(obj, months);
 			
-			c1.getInstallment();
+			obj.getInstallment();
 		} 
 		catch(NumberFormatException e) {
 			System.out.println("Digite um número válido Erro: " + e.getMessage());
